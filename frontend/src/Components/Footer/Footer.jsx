@@ -6,7 +6,7 @@ import pintester_icon from '../Assets/pintester_icon.png'
 import whatsapp_icon from '../Assets/whatsapp_icon.png'
 
 export const Footer = () => {
-    const currentYear = new Date().getFullYear();
+    const currentYear = new Date().getFullYear(); // Get current year
 
     return (
         <div className="footer">
