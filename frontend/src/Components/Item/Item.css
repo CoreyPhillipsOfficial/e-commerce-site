@@ -77,3 +77,18 @@ media(max-width: 1024px) {
         font-size: 12px;
     }
 }
+
+@media(max-width: 500px) {
+    .item {
+        width: 160px;
+        font-size: 12px;
+    }
+
+    .item img {
+        width: 160px;
+    }
+
+    .item-price-old {
+        font-size: 12px;
+    }
+}
