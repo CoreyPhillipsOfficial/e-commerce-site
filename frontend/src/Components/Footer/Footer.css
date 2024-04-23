@@ -70,4 +70,25 @@
         gap: 10px;
         align-items: end;
     }
+
+    .footer-logo img {
+        width: 40px;
+    }
+
+    .footer-logo p {
+        font-size: 25px;
+    }
+
+    .footer-links {
+        font-size: 14px;
+        gap: 10px;
+    }
+
+    .footer-social-icons img {
+        width: 22px;
+    }
+
+    .footer-copyright {
+        font-size: 13px;
+    }
 }
