@@ -163,3 +163,17 @@
         margin-left: -125px;
     }
 }
+
+@media(max-width: 500px) {
+    .cartitems-format-main {
+        display: none;
+        grid-template-columns: 0.5fr 3fr 0.5fr;
+        gap: 10px;
+    }
+
+    .cartitems-format {
+        display: grid;
+    }
+
+
+}
