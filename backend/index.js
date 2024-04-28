@@ -40,7 +40,7 @@ app.post('/upload', upload.single('product'), (req, res) => {
 })
 
 // Schema for creating products
-const Product = mongoose, model('Product', {
+const Product = mongoose.model('Product', {
     id: {
         type: Number,
         required: true,
@@ -66,13 +66,13 @@ const Product = mongoose, model('Product', {
         required: true,
     },
     date: {
-        type: date,
+        type: Date,
         default: Date.now,
-    }
+    },
     available: {
         type: Boolean,
         default: true,
-    }
+    },
 })
 
 app.listen(port, (error) => {
