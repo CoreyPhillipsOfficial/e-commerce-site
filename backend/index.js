@@ -117,7 +117,31 @@ app.get('/allproducts', async (req, res) => {
     let products = await Product.find({});
     console.log('All products fetched');
     res.send(products);
-})
+});
+
+// Creating schema for User Model
+const Users = mongoose.model('Users', {
+    name: {
+        type: String,
+    },
+    email: {
+        type: String,,
+        unique: true
+    },
+    password: {
+        type: String,
+    },
+    cartData: {
+        type: Object,
+    },
+    date: {
+        type: Date,
+        default: Date.now,
+    },
+});
+
+// Creating endpoint for registering the user
+
 
 app.listen(port, (error) => {
     if (!error) {
