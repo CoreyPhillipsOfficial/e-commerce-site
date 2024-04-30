@@ -114,9 +114,14 @@ app.post('/removeproduct', async (req, res) => {
 
 // Creating API for getting all products
 app.get('/allproducts', async (req, res) => {
-    let products = await Product.find({});
-    console.log('All products fetched');
-    res.send(products);
+    try {
+        let products = await Product.find({});
+        console.log('All products fetched:', products.length);
+        res.send(products);
+    } catch (error) {
+        console.error('Error fetching all products:', error);
+        res.status(500).json({ success: false, error: 'Error fetching all products' });
+    }
 });
 
 // Creating schema for User Model
@@ -199,7 +204,20 @@ app.get('/newcollections', async (req, res) => {
     let newcollection = products.slice(1).slice(-8);
     console.log('NewCollection fetched');
     res.send(newcollection);
-})
+});
+
+// Creating endpoint for popular in women section
+app.get('/popularinwomen', async (req, res) => {
+    try {
+        let products = await Product.find({ category: 'women' })
+        let popular_in_women = products.slice(0, 4);
+        console.log('Popular in women fetched');
+        res.send(popular_in_women);
+    } catch {
+        console.error('Error fetching popular in women:', error);
+        res.status(500).json({ success: false, error: 'Error fetching popular in women' });
+    }
+});
 
 app.listen(port, (error) => {
     if (!error) {

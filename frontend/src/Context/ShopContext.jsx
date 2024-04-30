@@ -19,16 +19,16 @@ const ShopContextProvider = (props) => {
         fetch('http://localhost:4000/allproducts')
             .then((response) => response.json())
             .then((data) => setAll_Product(data))
-    }, [])
+    }, []);
 
     const addToCart = (itemId) => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }))
         console.log(cartItems);
-    }
+    };
 
     const removeFromCart = (itemId) => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }))
-    }
+    };
 
     const getTotalCartAmount = () => {
         let totalAmount = 0;
@@ -39,7 +39,7 @@ const ShopContextProvider = (props) => {
             }
         }
         return totalAmount;
-    }
+    };
 
     const getTotalCartItems = () => {
         let totalItem = 0;
@@ -49,7 +49,7 @@ const ShopContextProvider = (props) => {
             }
         }
         return totalItem;
-    }
+    };
 
     const contextValue = { getTotalCartItems, getTotalCartAmount, all_product, cartItems, addToCart, removeFromCart };
 
