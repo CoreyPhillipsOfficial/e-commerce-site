@@ -5,6 +5,14 @@ export const LoginSignup = () => {
 
     const [state, setState] = useState('Login');
 
+    const login = async () => {
+        console.log('Login function executed');
+    };
+
+    const signup = async () => {
+        console.log('Signup function executed');
+    };
+
     return (
         <div className='loginsignup'>
             <div className="loginsignup-container">
@@ -14,7 +22,7 @@ export const LoginSignup = () => {
                     <input type="email" placeholder='Email' />
                     <input type="password" placeholder='Password' />
                 </div>
-                <button>Continue</button>
+                <button onClick={() => { state === 'Login' ? login() : signup() }}>Continue</button>
                 {state === 'Sign Up'
                     ? <p className="loginsignup-login">Already have an account? <span onClick={() => { setState('Login') }} >Login</span> </p>
                     : <p className="loginsignup-login">Create an account <span onClick={() => { setState('Sign Up') }} >here</span> </p>}
