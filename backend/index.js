@@ -219,6 +219,11 @@ app.get('/popularinwomen', async (req, res) => {
     }
 });
 
+// Creating endpoint for adding products in cartdata
+app.post('/addtocart', async (req, res) => {
+
+})
+
 app.listen(port, (error) => {
     if (!error) {
         console.log('Server running on port ' + port);
