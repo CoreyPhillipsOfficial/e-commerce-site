@@ -7,6 +7,12 @@ import { ShopContext } from '../../Context/ShopContext';
 export const ProductDisplay = (props) => {
     const { product } = props;
     const { addToCart } = useContext(ShopContext);
+
+
+    if (!product) {
+        return null; // Render nothing if product is not defined
+    }
+
     return (
         <div className='productdisplay'>
             <div className="productdisplay-left">
