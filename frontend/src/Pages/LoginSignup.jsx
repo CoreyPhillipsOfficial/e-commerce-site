@@ -16,6 +16,22 @@ export const LoginSignup = () => {
 
     const login = async () => {
         console.log('Login function executed', formData);
+        let responseData;
+        await fetch('http://localhost:4000/login', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/form-data',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData),
+        }).then((response) => response.json()).then((data) => responseData = data)
+
+        if (responseData.success) {
+            localStorage.setItem('auth-token', responseData.token);
+            window.location.replace('/');
+        } else {
+            alert(responseData.errors)
+        }
     };
 
     const signup = async () => {
