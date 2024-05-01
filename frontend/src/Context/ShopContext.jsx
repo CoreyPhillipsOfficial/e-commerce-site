@@ -16,9 +16,26 @@ const ShopContextProvider = (props) => {
     const [cartItems, setCartItems] = useState(getDefaultCart());
 
     useEffect(() => {
+        const storedCartItems = JSON.parse(localStorage.getItem('cartItems'));
+        if (storedCartItems) {
+            setCartItems(storedCartItems);
+        }
         fetch('http://localhost:4000/allproducts')
             .then((response) => response.json())
-            .then((data) => setAll_Product(data))
+            .then((data) => setAll_Product(data));
+
+        if (localStorage.getItem('auth-token')) {
+            fetch('http://localhost:4000/getcart', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/form-data',
+                    'auth-token': `${localStorage.getItem('auth-token')}`,
+                    'Content-Type': 'application/json',
+                },
+                body: '',
+            }).then((response) => response.json())
+                .then((data) => setCartItems(data));
+        }
     }, []);
 
     const addToCart = (itemId) => {
@@ -51,7 +68,9 @@ const ShopContextProvider = (props) => {
                 body: JSON.stringify({ 'itemId': itemId })
             })
                 .then((response) => response.json())
-                .then((data) => console.log(data));
+                .then((data) => {
+                    console.log(data);
+                });
         }
     };
 
@@ -60,7 +79,9 @@ const ShopContextProvider = (props) => {
         for (const item in cartItems) {
             if (cartItems[item] > 0) {
                 let itemInfo = all_product.find((product) => product.id === Number(item));
-                totalAmount += itemInfo.new_price * cartItems[item];
+                if (itemInfo && itemInfo.new_price) {
+                    totalAmount += itemInfo.new_price * cartItems[item];
+                }
             }
         }
         return totalAmount;
