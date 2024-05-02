@@ -3,5 +3,8 @@
         "frontend": "cd frontend && npm start",
         "backend": "cd backend && node index.js",
         "dev": "concurrently \"npm run frontend\" \"npm run backend\""
+    },
+    "dependencies": {
+        "dotenv": "^16.4.5"
     }
 }

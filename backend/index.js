@@ -6,15 +6,23 @@ const jwt = require('jsonwebtoken');
 const multer = require('multer');
 const path = require('path');
 const cors = require('cors');
+require('dotenv').config();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: ['https://e-commerce-site-frontend-tau.vercel.app/'],
+    methods: ['POST', 'GET'],
+    credentials: true
+}
+));
+
+
+
 
 // Database Connection with MongoDB
-mongoose.connect('mongodb+srv://greatstackdev:NU9T1bvit1Lvoc2M@cluster0.d77y0zg.mongodb.net/e-commerce');
+mongoose.connect(`mongodb+srv://greatstackdev:${process.env.MONGODB_PASSWORD}@cluster0.d77y0zg.mongodb.net/e-commerce`);
 
 // API Creation
-
 app.get('/', (req, res) => {
     res.send('Express App is running!')
 });

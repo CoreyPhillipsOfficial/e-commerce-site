@@ -13,6 +13,9 @@ import men_banner from './Components/Assets/banner_mens.png'
 import kid_banner from './Components/Assets/banner_kids.png'
 
 function App() {
+
+  const backendUrl = 'https://e-commerce-site-one-chi.vercel.app';
+
   return (
     <div>
       <BrowserRouter>

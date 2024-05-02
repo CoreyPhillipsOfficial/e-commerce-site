@@ -23,13 +23,13 @@ const ShopContextProvider = (props) => {
         if (storedCartItems) {
             setCartItems(storedCartItems);
         }
-        fetch('http://localhost:4000/allproducts')
+        fetch('https://e-commerce-site-one-chi.vercel.app/allproducts')
             .then((response) => response.json())
             .then((data) => setAll_Product(data));
 
         // Fetch user's cart if logged in
         if (localStorage.getItem('auth-token')) {
-            fetch('http://localhost:4000/getcart', {
+            fetch('https://e-commerce-site-one-chi.vercel.app/getcart', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/form-data',
@@ -46,7 +46,7 @@ const ShopContextProvider = (props) => {
     const addToCart = (itemId) => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }))
         if (localStorage.getItem('auth-token')) {
-            fetch('http://localhost:4000/addtocart', {
+            fetch('https://e-commerce-site-one-chi.vercel.app/addtocart', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/form-data',
@@ -64,7 +64,7 @@ const ShopContextProvider = (props) => {
     const removeFromCart = (itemId) => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }))
         if (localStorage.getItem('auth-token')) {
-            fetch('http://localhost:4000/removefromcart', {
+            fetch('https://e-commerce-site-one-chi.vercel.app/removefromcart', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/form-data',

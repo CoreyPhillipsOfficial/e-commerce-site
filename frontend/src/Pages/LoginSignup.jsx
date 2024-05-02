@@ -21,7 +21,7 @@ export const LoginSignup = () => {
         console.log('Login function executed', formData);
         let responseData;
         // API call to login user
-        await fetch('http://localhost:4000/login', {
+        await fetch('https://e-commerce-site-one-chi.vercel.app/login', {
             method: 'POST',
             headers: {
                 Accept: 'application/form-data',
@@ -44,7 +44,7 @@ export const LoginSignup = () => {
         console.log('Signup function executed', formData);
         let responseData;
         // API call to register user
-        await fetch('http://localhost:4000/signup', {
+        await fetch('https://e-commerce-site-one-chi.vercel.app/signup', {
             method: 'POST',
             headers: {
                 Accept: 'application/form-data',
