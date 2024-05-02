@@ -1,4 +1,4 @@
-# MERN Stack E-Commerce Clothing Online Store
+# MERN Stack E-Commerce Online Clothing Store
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![npm](https://img.shields.io/npm/v/react)
