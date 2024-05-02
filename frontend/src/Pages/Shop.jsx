@@ -7,9 +7,18 @@ import { NewsLetter } from '../Components/NewsLetter/NewsLetter'
 
 
 export const Shop = () => {
+
+    const scrollToNewCollections = () => {
+        // Scroll to the NewCollections component
+        const newCollectionsElement = document.getElementById('newCollections');
+        if (newCollectionsElement) {
+            newCollectionsElement.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <div>
-            <Hero />
+            <Hero scrollToNewCollections={scrollToNewCollections} />
             <Popular />
             <Offers />
             <NewCollections />

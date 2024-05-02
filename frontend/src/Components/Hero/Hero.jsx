@@ -3,7 +3,7 @@ import './Hero.css'
 import arrow_icon from '../Assets/arrow.png'
 import hero_image from '../Assets/hero_image.png'
 
-export const Hero = () => {
+export const Hero = ({ scrollToNewCollections }) => {
     return (
         <div className='hero'>
             <div className="hero-left">
@@ -15,8 +15,8 @@ export const Hero = () => {
                     <p>meets</p>
                     <p>comfort.</p>
                 </div>
-                <div className="hero-latest-btn">
-                    <div>Latest Collection</div>
+                <div className="hero-latest-btn" onClick={scrollToNewCollections}>
+                    <div>New Collections</div>
                     <img src={arrow_icon} alt="" />
                 </div>
             </div>
