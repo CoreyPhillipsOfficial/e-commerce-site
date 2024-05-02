@@ -3,6 +3,7 @@ import './CSS/LoginSignup.css'
 
 export const LoginSignup = () => {
 
+    // State to manage login/signup form and input fields
     const [state, setState] = useState('Login');
     const [formData, setForData] = useState({
         username: '',
@@ -10,13 +11,16 @@ export const LoginSignup = () => {
         email: ''
     });
 
+    // Function to handle input field changes
     const changeHandler = (e) => {
         setForData({ ...formData, [e.target.name]: e.target.value })
     };
 
+    // Function to handle user login
     const login = async () => {
         console.log('Login function executed', formData);
         let responseData;
+        // API call to login user
         await fetch('http://localhost:4000/login', {
             method: 'POST',
             headers: {
@@ -26,6 +30,7 @@ export const LoginSignup = () => {
             body: JSON.stringify(formData),
         }).then((response) => response.json()).then((data) => responseData = data)
 
+        // Redirect user to home page on successful login or show error alert
         if (responseData.success) {
             localStorage.setItem('auth-token', responseData.token);
             window.location.replace('/');
@@ -34,9 +39,11 @@ export const LoginSignup = () => {
         }
     };
 
+    // Function to handle user signup
     const signup = async () => {
         console.log('Signup function executed', formData);
         let responseData;
+        // API call to register user
         await fetch('http://localhost:4000/signup', {
             method: 'POST',
             headers: {
@@ -46,6 +53,7 @@ export const LoginSignup = () => {
             body: JSON.stringify(formData),
         }).then((response) => response.json()).then((data) => responseData = data)
 
+        // Redirect user to home page on successful signup or show error alert
         if (responseData.success) {
             localStorage.setItem('auth-token', responseData.token);
             window.location.replace('/');
@@ -56,6 +64,7 @@ export const LoginSignup = () => {
 
     return (
         <div className='loginsignup'>
+            {/* Login/Signup form */}
             <div className="loginsignup-container">
                 <h1>{state}</h1>
                 <div className="loginsignup-fields">

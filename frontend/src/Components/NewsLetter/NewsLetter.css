@@ -1,6 +1,6 @@
 .newsletter {
     width: 65%;
-    height: 40vh;
+    height: 55vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -56,6 +56,7 @@
 
 @media(max-width: 1280px) {
     .newsletter {
+        height: 40vh;
         padding: 0px 80px;
         margin-bottom: 120px;
         gap: 20px;

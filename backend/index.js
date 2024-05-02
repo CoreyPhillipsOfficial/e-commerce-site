@@ -75,6 +75,7 @@ const Product = mongoose.model('Product', {
     },
 });
 
+// Creating API for adding products
 app.post('/addproduct', async (req, res) => {
     let products = await Product.find({});
     let id;

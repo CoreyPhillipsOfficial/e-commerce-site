@@ -12,10 +12,13 @@ const getDefaultCart = () => {
 
 const ShopContextProvider = (props) => {
 
+    // State to store all products and cart items
     const [all_product, setAll_Product] = useState([]);
     const [cartItems, setCartItems] = useState(getDefaultCart());
 
+    // Fetch all products and user's cart on component mount
     useEffect(() => {
+        // Fetch all products
         const storedCartItems = JSON.parse(localStorage.getItem('cartItems'));
         if (storedCartItems) {
             setCartItems(storedCartItems);
@@ -24,6 +27,7 @@ const ShopContextProvider = (props) => {
             .then((response) => response.json())
             .then((data) => setAll_Product(data));
 
+        // Fetch user's cart if logged in
         if (localStorage.getItem('auth-token')) {
             fetch('http://localhost:4000/getcart', {
                 method: 'POST',
@@ -38,6 +42,7 @@ const ShopContextProvider = (props) => {
         }
     }, []);
 
+    // Function to add item to cart
     const addToCart = (itemId) => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }))
         if (localStorage.getItem('auth-token')) {
@@ -55,6 +60,7 @@ const ShopContextProvider = (props) => {
         }
     };
 
+    // Function to remove item from cart
     const removeFromCart = (itemId) => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }))
         if (localStorage.getItem('auth-token')) {
@@ -74,6 +80,7 @@ const ShopContextProvider = (props) => {
         }
     };
 
+    // Function to calculate total cart amount
     const getTotalCartAmount = () => {
         let totalAmount = 0;
         for (const item in cartItems) {
@@ -87,6 +94,7 @@ const ShopContextProvider = (props) => {
         return totalAmount;
     };
 
+    // Function to calculate total cart items
     const getTotalCartItems = () => {
         let totalItem = 0;
         for (const item in cartItems) {
@@ -97,6 +105,7 @@ const ShopContextProvider = (props) => {
         return totalItem;
     };
 
+    // Context value containing all necessary functions and data
     const contextValue = { getTotalCartItems, getTotalCartAmount, all_product, cartItems, addToCart, removeFromCart };
 
     return (

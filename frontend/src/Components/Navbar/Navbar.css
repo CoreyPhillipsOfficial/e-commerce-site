@@ -4,6 +4,9 @@
     padding: 16px;
     box-shadow: 0 1px 3px -2px black;
     align-items: center;
+    position: relative;
+    /* Add position relative */
+    z-index: 1;
 }
 
 .nav-logo {
@@ -16,6 +19,11 @@
     color: #171717;
     font-size: 38px;
     font-weight: 600px;
+    text-decoration: none;
+}
+
+.nav-logo p:hover {
+    text-decoration: none;
 }
 
 .nav-menu {
