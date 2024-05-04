@@ -33,11 +33,11 @@ This is a MERN (MongoDB, Express.js, React.js, Node.js) stack-based e-commerce p
 
 ### Installation
 1. Clone this repository to your local machine.
-2. Navigate to the project directory in your terminal.
+2. Navigate to the root folder of the project in your terminal.
 3. Install dependencies by running `npm install`.
 4. Set up your MongoDB database. Replace the MongoDB connection string in `app.js` with your database connection string.
-5. Start the server by running `npm start`.
-6. The server will be running on `http://localhost:4000`.
+5. Start the development server by running `npm run dev`.
+6. The frontend and backend servers will be running concurrently.
 
 ## Usage
 1. Visit `http://localhost:4000` to access the website.
