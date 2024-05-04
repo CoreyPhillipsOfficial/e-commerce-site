@@ -15,6 +15,8 @@ app.use(cors({
     credentials: true
 }));
 
+
+
 // Database Connection with MongoDB
 mongoose.connect(`mongodb+srv://greatstackdev:${process.env.MONGODB_PASSWORD}@cluster0.d77y0zg.mongodb.net/e-commerce`);
 
