@@ -11,7 +11,7 @@ export const Popular = () => {
     const [popularProducts, setPopularProducts] = useState([]);
 
     useEffect(() => {
-        fetch(`${baseUrl}popularinwomen`)
+        fetch(`${baseUrl}/popularinwomen`)
             .then((response) => response.json())
             .then((data) => setPopularProducts(data))
     }, []);
