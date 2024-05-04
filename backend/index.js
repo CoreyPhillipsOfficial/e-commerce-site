@@ -10,7 +10,7 @@ require('dotenv').config();
 
 app.use(express.json());
 app.use(cors({
-    origin: ['https://e-commerce-site-frontend-tau.vercel.app/'],
+    origin: ['https://e-commerce-site-frontend-tau.vercel.app'],
     methods: ['POST', 'GET'],
     credentials: true
 }));
