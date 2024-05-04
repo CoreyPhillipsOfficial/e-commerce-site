@@ -5,6 +5,7 @@
         "dev": "concurrently \"npm run frontend\" \"npm run backend\""
     },
     "dependencies": {
+        "cors": "^2.8.5",
         "dotenv": "^16.4.5"
     }
 }

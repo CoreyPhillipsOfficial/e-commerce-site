@@ -8,7 +8,7 @@ export const NewCollections = () => {
     const [new_collection, setNew_collection] = useState([])
 
     useEffect(() => {
-        fetch('https://e-commerce-site-one-chi.vercel.app/newcollections')
+        fetch(`${baseUrl}/newcollections`)
             .then((response) => response.json())
             .then((data) => setNew_collection(data))
     }, [])
