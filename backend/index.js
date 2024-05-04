@@ -9,13 +9,11 @@ const cors = require('cors');
 require('dotenv').config();
 
 app.use(express.json());
-app.use(cors());
-
-// {
-//     origin: ['https://e-commerce-site-frontend-tau.vercel.app/'],
-//     methods: ['POST', 'GET'],
-//     credentials: true
-// }
+app.use(cors({
+    origin: ['https://e-commerce-site-frontend-tau.vercel.app/'],
+    methods: ['POST', 'GET'],
+    credentials: true
+}));
 
 // Database Connection with MongoDB
 mongoose.connect(`mongodb+srv://greatstackdev:${process.env.MONGODB_PASSWORD}@cluster0.d77y0zg.mongodb.net/e-commerce`);
