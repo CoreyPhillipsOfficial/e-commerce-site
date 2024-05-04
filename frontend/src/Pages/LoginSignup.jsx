@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './CSS/LoginSignup.css'
+import { baseUrl } from '../config.js'
 
 export const LoginSignup = () => {
 
@@ -21,7 +22,7 @@ export const LoginSignup = () => {
         console.log('Login function executed', formData);
         let responseData;
         // API call to login user
-        await fetch('https://e-commerce-site-one-chi.vercel.app/login', {
+        await fetch(`${baseUrl}/login`, {
             method: 'POST',
             headers: {
                 Accept: 'application/form-data',
@@ -44,7 +45,7 @@ export const LoginSignup = () => {
         console.log('Signup function executed', formData);
         let responseData;
         // API call to register user
-        await fetch('https://e-commerce-site-one-chi.vercel.app/signup', {
+        await fetch(`${baseUrl}/signup`, {
             method: 'POST',
             headers: {
                 Accept: 'application/form-data',

@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
+import { baseUrl } from '../config.js'
 
 export const ShopContext = createContext(null)
 
@@ -23,13 +24,13 @@ const ShopContextProvider = (props) => {
         if (storedCartItems) {
             setCartItems(storedCartItems);
         }
-        fetch('https://e-commerce-site-one-chi.vercel.app/allproducts')
+        fetch(`${baseUrl}/allproducts`)
             .then((response) => response.json())
             .then((data) => setAll_Product(data));
 
         // Fetch user's cart if logged in
         if (localStorage.getItem('auth-token')) {
-            fetch('https://e-commerce-site-one-chi.vercel.app/getcart', {
+            fetch(`${baseUrl}/getcart`, {
                 method: 'POST',
                 headers: {
                     Accept: 'application/form-data',
@@ -46,7 +47,7 @@ const ShopContextProvider = (props) => {
     const addToCart = (itemId) => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }))
         if (localStorage.getItem('auth-token')) {
-            fetch('https://e-commerce-site-one-chi.vercel.app/addtocart', {
+            fetch(`${baseUrl}/addtocart`, {
                 method: 'POST',
                 headers: {
                     Accept: 'application/form-data',
@@ -64,7 +65,7 @@ const ShopContextProvider = (props) => {
     const removeFromCart = (itemId) => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }))
         if (localStorage.getItem('auth-token')) {
-            fetch('https://e-commerce-site-one-chi.vercel.app/removefromcart', {
+            fetch(`${baseUrl}/removefromcart`, {
                 method: 'POST',
                 headers: {
                     Accept: 'application/form-data',

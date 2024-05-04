@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './NewCollections.css'
 import { Item } from '../Item/Item'
+import { baseUrl } from '../../config.js'
 
 export const NewCollections = () => {
 
