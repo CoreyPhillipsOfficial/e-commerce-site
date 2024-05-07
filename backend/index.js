@@ -29,8 +29,8 @@ mongoose.connect(dbConnectionUrl, {
     process.exit(1); // Exits the process on a failed database connection
 });
 
-// Database Connection with MongoDB
-mongoose.connect(`mongodb+srv://greatstackdev:${process.env.MONGODB_PASSWORD}@cluster0.d77y0zg.mongodb.net/e-commerce`);
+// // Database Connection with MongoDB
+// mongoose.connect(`mongodb+srv://greatstackdev:${process.env.MONGODB_PASSWORD}@cluster0.d77y0zg.mongodb.net/e-commerce`);
 
 // API Creation
 app.get('/', (req, res) => {
