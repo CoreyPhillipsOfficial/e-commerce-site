@@ -20,8 +20,6 @@ app.use(cors({
 
 const dbConnectionUrl = `mongodb+srv://greatstackdev:${process.env.MONGODB_PASSWORD}@cluster0.d77y0zg.mongodb.net/e-commerce`;
 mongoose.connect(dbConnectionUrl, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
 }).then(() => {
     console.log('MongoDB connected successfully');
 }).catch(error => {
