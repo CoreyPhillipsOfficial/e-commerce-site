@@ -10,13 +10,14 @@ const app = express();
 const port = process.env.PORT || 4000;
 
 app.use(express.json());
-app.use(cors({
-    origin: 'https://e-commerce-site-frontend-tau.vercel.app',
-    methods: ['POST', 'GET'],
-    credentials: true
-}));
+app.use(cors());
 
-
+// // Add this for Vercel deployment
+// {
+//     origin: 'https://e-commerce-site-frontend-tau.vercel.app',
+//     methods: ['POST', 'GET'],
+//     credentials: true
+// }
 
 const dbConnectionUrl = `mongodb+srv://greatstackdev:${process.env.MONGODB_PASSWORD}@cluster0.d77y0zg.mongodb.net/e-commerce`;
 mongoose.connect(dbConnectionUrl, {

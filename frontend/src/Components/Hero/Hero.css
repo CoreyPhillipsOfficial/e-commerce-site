@@ -1,5 +1,5 @@
 .hero {
-    height: 110vh;
+    height: 100vh;
     background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
     display: flex;
     position: relative;
@@ -29,11 +29,11 @@
     font-weight: 700;
 }
 
-.hero-hand-icon {
+/* .hero-hand-icon {
     display: flex;
     align-items: center;
     gap: 20px;
-}
+} */
 
 .hero-hand-icon img {
     width: 105px;

@@ -36,11 +36,11 @@ This is a MERN (MongoDB, Express.js, React.js, Node.js) stack-based e-commerce p
 2. Navigate to the project directory in your terminal.
 3. Install dependencies by running `npm install`.
 4. Set up your MongoDB database. Replace the MongoDB connection string in `app.js` with your database connection string.
-5. Start the server by running `npm start`.
+5. Start the server and frontend by running `npm run dev`.
 6. The server will be running on `http://localhost:4000`.
 
 ## Usage
-1. Visit `http://localhost:4000` to access the website.
+1. Visit `http://localhost:3000` to access the website.
 2. Browse through different categories and add items to your cart.
 3. Create a user account or log in with existing credentials.
 4. Access the admin panel by navigating to the admin page.
@@ -67,3 +67,6 @@ This project is licensed under the [MIT License](LICENSE).
 ## Further Development
 - Implement functionality for non-functional buttons and clickable text sections.
 - Make the email capture input fully functional for collecting emails and sending welcome messages.
+
+![Shop Screenshot](/frontend/src/Components/Assets/readme_shop.png)
+![My Cart Screenshot](/frontend/src/Components/Assets/readme_my_cart.png)
