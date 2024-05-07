@@ -1,6 +1,5 @@
 const port = 4000;
 const express = require('express');
-const app = express();
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const multer = require('multer');
@@ -8,12 +7,26 @@ const path = require('path');
 const cors = require('cors');
 require('dotenv').config();
 
+const app = express();
+const port = process.env.PORT || 4000;
+
 app.use(express.json());
 app.use(cors({
     origin: 'https://e-commerce-site-frontend-tau.vercel.app',
     methods: ['POST', 'GET'],
     credentials: true
 }));
+
+const dbConnectionUrl = `mongodb+srv://greatstackdev:${process.env.MONGODB_PASSWORD}@cluster0.d77y0zg.mongodb.net/e-commerce`;
+mongoose.connect(dbConnectionUrl, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => {
+    console.log('MongoDB connected successfully');
+}).catch(error => {
+    console.error('Database connection failed', error);
+    process.exit(1); // Exits the process on a failed database connection
+});
 
 // Database Connection with MongoDB
 mongoose.connect(`mongodb+srv://greatstackdev:${process.env.MONGODB_PASSWORD}@cluster0.d77y0zg.mongodb.net/e-commerce`);
